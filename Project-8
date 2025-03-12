@@ -1,0 +1,24 @@
+# TODO-1: Ask the user for input
+# TODO-2: Save data into dictionary {name: price}
+# TODO-3: Whether if new bids need to be added
+# TODO-4: Compare bids in dictionary
+bids = {}
+
+continue_bidding = True
+while continue_bidding:
+    name = input("Please tell your name: ")
+    price = int(input("Please enter your bid:  $"))
+
+    bids[name] = price  # Store the bid
+
+    new = input("Do more people want to bid? (yes/no) ").lower()
+
+    if new == "yes":
+        print("\n" * 100)  # Clears the screen (simulates a new round)
+
+    else:
+        continue_bidding = False  # Stop asking if the answer is not "yes"
+
+# Finding the highest bidder AFTER all bidding is done
+highest_bidder = max(bids, key=bids.get)  # Get the name of the highest bidder
+print(f"The highest bidder is {highest_bidder} with a bid of ${bids[highest_bidder]}.")
